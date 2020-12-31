@@ -1,0 +1,224 @@
+@font-face {
+    font-family: 'GoyangIlsan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GoyangIlsan.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Recipekorea';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Recipekorea.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CookieRunOTF-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes typing {
+    0% {
+        border-right: 1px solid #111;
+    }
+    50% {
+        border-right: 1px solid #fff;
+    }
+    100% {
+        border-right: 1px solid #111;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        opacity:1;
+    }
+    to {
+        opacity:0;
+    }
+}
+
+@keyframes updown {
+    from {
+        margin-top: -10px;
+    }
+    to {
+        margin-top: 10px;
+    }
+}
+
+body{ -ms-overflow-style: none; } ::-webkit-scrollbar { display: none; }
+
+.text-center {
+    text-align: center;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.mr-auto {
+    margin-right: auto;
+}
+
+.mx-auto {
+    margin: 0 auto;
+}
+
+.my-auto {
+    margin: auto 0;
+}
+
+.click {
+    cursor: pointer;
+}
+
+section {
+    text-align: center;
+}
+
+.titles {
+    font-size: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+html {
+    overflow-y: hidden;
+    animation: fadein 2s;
+    -moz-animation: fadein 2s;
+    -webkit-animation: fadein 2s;
+    -o-animation: fadein 2s;
+}
+
+body * {
+    font-family: 'GoyangIlsan';
+}
+
+#home {
+    text-align: center;
+    display: table;
+    height: 100vh;
+}
+
+@media (min-width: 991px) {
+    .slow-down img {
+        max-width: 600px;
+    }
+
+}
+
+.vertical-middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.intro {
+    display: inline-block;
+    padding: 0 10px;
+    animation-name: typing;
+    animation-duration: 0.4s;
+    animation-iteration-count: infinite;
+}
+
+.intro-bg {
+    background: rgba(255,255,255,0.5);
+    padding: 10px 30px;
+    border: 1px solid #aaa;
+}
+
+.about-bg {
+    margin: 0 auto;
+}
+
+.about-bg figure {
+    display: flex;
+}
+
+.introduce {
+    margin: 0 20px;
+}
+
+.main-page {
+    text-align: center;
+    position: absolute;
+    font-size: 50px;
+    top: 20vh;
+    left: 0;
+    right: 0;
+}
+
+.slow-down {
+    margin: 0 40px;
+    cursor: pointer;
+    text-align: center;
+    position: absolute;
+    font-size: 50px;
+    top: 70vh;
+    left: 0;
+    right: 0;
+}
+
+#contact i {
+    margin-right: 5px;
+}
+
+.h4 {
+    margin-bottom: 10px;
+}
+
+.skill-name {
+    margin-bottom: 10px;
+}
+
+#project .tile.is-parent {
+    border-radius: 30px;
+}
+
+#project figure:hover {
+    transition: all .3s ease;
+    -webkit-transform: scale(1.05);
+}
+
+#home {
+    width: 100%;
+    background-image: url(../images/port_bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+a.navbar-item.on {
+    color:#FC5230;
+}
+
+#port-content {
+    display: none;
+}
+
+.navbar.is-fixed-top {
+    z-index: -10;
+}
+
+#title-img {
+    animation: updown 0.75s linear 0s infinite alternate;
+}
+
+footer {
+    background: #F0C6A0;
+    color: #fff;
+    padding: 20px;
+    text-align: right;
+}
