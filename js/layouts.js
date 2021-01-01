@@ -22,12 +22,23 @@ typing = () => {
     }
 }
 
+topbtn = () => {
+    $("html").animate({scrollTop:0}, 400);
+}
+
 var str_idx=0;
 var str = "여긴 인삿말 적는 곳이다. 그리고 귀여운 게임을 만들자.";
-var tyInt = setInterval(typing,100);
+var tyInt = setInterval(typing, 100);
+
+window.onload = () => {
+    topbtn();
+}
 	
 $(window).scroll(() => {
     var scroll = $(this).scrollTop();
+
+    if (scroll < 400) $(".top").fadeOut();
+    else $(".top").fadeIn();
 
     if (scroll == 0) {
         $("a.navbar-item").removeClass("on");
