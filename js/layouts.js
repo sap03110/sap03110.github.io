@@ -37,27 +37,30 @@ window.onload = () => {
 $(window).scroll(() => {
     var scroll = $(this).scrollTop();
 
-    if (scroll < 400) $(".top").fadeOut();
-    else $(".top").fadeIn();
+    (scroll < 400) ? $(".top").fadeOut() : $(".top").fadeIn();
 
-    if (scroll == 0) {
+    if (0 <= scroll && scroll < $("#about").position().top / 4) {
         $("a.navbar-item").removeClass("on");
         $("a.navbar-item:nth-child(1)").addClass("on");
     }
-    else if (scroll < $("#about").position().top) {
+    else if ($("#about").position().top / 4 <= scroll && scroll < ($("#about").position().top + $("#skill").position().top ) / 2) {
         $("a.navbar-item").removeClass("on");
         $("a.navbar-item:nth-child(2)").addClass("on");
     }
-    else if ($("#about").position().top <= scroll && scroll < $("#skill").position().top) {
+    else if (($("#about").position().top+$("#skill").position().top) / 2 <= scroll && scroll < $("#skill").position().top) {
         $("a.navbar-item").removeClass("on");
         $("a.navbar-item:nth-child(3)").addClass("on");
     }
-    else if ($("#skill").position().top <= scroll && scroll < $("#project").position().top) {
+    else if ($("#skill").position().top <= scroll && scroll < $("#certificate").position().top) {
         $("a.navbar-item").removeClass("on");
         $("a.navbar-item:nth-child(4)").addClass("on");
     }
-    else if ($("#project").position().top <= scroll && scroll < $("#contact").position().top) {
+    else if ($("#certificate").position().top <= scroll && scroll < $("#project").position().top) {
         $("a.navbar-item").removeClass("on");
         $("a.navbar-item:nth-child(5)").addClass("on");
+    }
+    else if ($("#project").position().top <= scroll && scroll < $("#contact").position().top) {
+        $("a.navbar-item").removeClass("on");
+        $("a.navbar-item:nth-child(6)").addClass("on");
     }
 });
