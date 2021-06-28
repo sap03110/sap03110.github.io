@@ -83,6 +83,8 @@
     }
 }
 
+a { color: #111; }
+
 body{ -ms-overflow-style: none; } ::-webkit-scrollbar { display: none; }
 
 .text-center {
@@ -200,12 +202,19 @@ body * {
 
 .homepage-btn-list {
     margin: 0 auto;
-    display: flex;
     justify-content: center;
 }
 
 .homepage-btn-list li {
     margin: 0 5px;
+}
+
+.homepage-btn-list li > a {
+    display: inline-flex;
+}
+
+.homepage-btn-list li > a > svg {
+    margin: 0 8px;
 }
 
 .main-page {
