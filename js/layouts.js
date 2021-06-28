@@ -1,11 +1,11 @@
-function setPosition(obj) {
+const setPosition = (obj) => {
     var top = $("#"+obj.target).position().top;
     $("a.navbar-item").removeClass("on");
     $("a.navbar-item:nth-child("+obj.idx+")").addClass("on");
     $('html, body').animate({scrollTop: top}, 600);
 }
 
-show_portfolio = () => {
+const show_portfolio = () => {
     if (!$("#port-content").is(":visible")) {
         $("html").css("overflow-y","scroll");
         $("#port-content").show();
@@ -13,7 +13,7 @@ show_portfolio = () => {
     }
 }
      
-typing = () => {
+const typing = () => {
     if (str_idx<str.length){
         $(".intro").append(str[str_idx]);
         str_idx++; 
@@ -22,13 +22,13 @@ typing = () => {
     }
 }
 
-topbtn = () => {
+const topbtn = () => {
     $("html").animate({scrollTop:0}, 400);
 }
 
-var str_idx=0;
-var str = "여긴 인삿말 적는 곳이다. 그리고 귀여운 게임을 만들자.";
-var tyInt = setInterval(typing, 100);
+let str_idx = 0;
+let str = "여긴 인삿말 적는 곳이다. 그리고 귀여운 게임을 만들자.";
+let tyInt = setInterval(typing, 100);
 
 window.onload = () => {
     topbtn();
@@ -63,4 +63,18 @@ $(window).scroll(() => {
         $("a.navbar-item").removeClass("on");
         $("a.navbar-item:nth-child(6)").addClass("on");
     }
-});
+})
+
+$(".project-btn-list > button").click(e => {
+    $(".project-btn-list > button").removeClass("selected");
+    $(e.target).addClass("selected");
+
+    const clsName = e.target.value
+    if (clsName != '') {
+        $("#project ul.project-list > li").hide()
+        $("#project ul.project-list > li.is-" + clsName).css("opacity", 0).show().animate({opacity:1}, 400)
+    }
+    else {
+        $("#project ul.project-list > li").css("opacity", 0).show().animate({opacity:1}, 400)
+    }
+})
