@@ -65,16 +65,18 @@ $(window).scroll(() => {
     }
 })
 
-$(".project-btn-list > button").click(e => {
-    $(".project-btn-list > button").removeClass("selected");
-    $(e.target).addClass("selected");
+const projectBox = document.querySelector('#project ul.project-list')
+const projectCatBtn = document.querySelectorAll('.project-btn-list > button')
+const projectList = projectBox.querySelectorAll('li')
+projectCatBtn.forEach(e => e.addEventListener('click', e2 => {
+    projectCatBtn.forEach(e => e.classList.remove('selected'))
+    e.classList.add('selected')
 
-    const clsName = e.target.value
+    const clsName = e2.target.value
     if (clsName != '') {
-        $("#project ul.project-list > li").hide()
-        $("#project ul.project-list > li.is-" + clsName).css("opacity", 0).show().animate({opacity:1}, 400)
+        projectList.forEach(e => e.classList.add('hide'))
+        projectBox.querySelectorAll(`li.is-${clsName}`).forEach(e => e.classList.remove('hide'))
+    } else {
+        projectList.forEach(e => e.classList.remove('hide'))
     }
-    else {
-        $("#project ul.project-list > li").css("opacity", 0).show().animate({opacity:1}, 400)
-    }
-})
+}))
