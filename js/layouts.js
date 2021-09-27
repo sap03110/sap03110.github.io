@@ -1,43 +1,36 @@
-const setPosition = (obj) => {
-    var top = $("#"+obj.target).position().top;
+const navBar = document.querySelector('.navbar.is-fixed-top')
+const portCont = document.querySelector('#port-content')
+
+const projectBox = document.querySelector('#project ul.project-list')
+const projectCatBtn = document.querySelectorAll('.project-btn-list > button')
+const projectList = projectBox.querySelectorAll('li')
+
+const setPosition = obj => {
+    let top = $(`#${obj.target}`).position().top;
     $("a.navbar-item").removeClass("on");
     $("a.navbar-item:nth-child("+obj.idx+")").addClass("on");
     $('html, body').animate({scrollTop: top}, 600);
 }
 
 const show_portfolio = () => {
-    if (!$("#port-content").is(":visible")) {
-        $("html").css("overflow-y","scroll");
-        $("#port-content").show();
-        $(".navbar.is-fixed-top").css("z-index","30");
-    }
-}
-     
-const typing = () => {
-    if (str_idx<str.length){
-        $(".intro").append(str[str_idx]);
-        str_idx++; 
-    } else { 
-        clearInterval(tyInt);
+    if (portCont.style.display === '') {
+        portCont.style.display = 'block'
+        navBar.style['z-index'] = 30
     }
 }
 
-const topbtn = () => {
+const topBtn = document.querySelector('.top')
+const goToTop = () => {
     $("html").animate({scrollTop:0}, 400);
 }
+topBtn.addEventListener('click', goToTop)
 
 let str_idx = 0;
-let str = "여긴 인삿말 적는 곳이다. 그리고 귀여운 게임을 만들자.";
-let tyInt = setInterval(typing, 100);
 
-window.onload = () => {
-    topbtn();
-}
-	
-$(window).scroll(() => {
-    var scroll = $(this).scrollTop();
-
-    (scroll < 400) ? $(".top").fadeOut() : $(".top").fadeIn();
+window.onload = goToTop
+window.onscroll = () => {
+    let scroll = $(this).scrollTop()
+    scroll < 400 ? $(".top").fadeOut() : $(".top").fadeIn()
 
     if (0 <= scroll && scroll < $("#about").position().top / 4) {
         $("a.navbar-item").removeClass("on");
@@ -63,11 +56,9 @@ $(window).scroll(() => {
         $("a.navbar-item").removeClass("on");
         $("a.navbar-item:nth-child(6)").addClass("on");
     }
-})
 
-const projectBox = document.querySelector('#project ul.project-list')
-const projectCatBtn = document.querySelectorAll('.project-btn-list > button')
-const projectList = projectBox.querySelectorAll('li')
+}
+
 projectCatBtn.forEach(e => e.addEventListener('click', e2 => {
     projectCatBtn.forEach(e => e.classList.remove('selected'))
     e.classList.add('selected')
