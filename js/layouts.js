@@ -1,73 +1,101 @@
-const navBar = document.querySelector('.navbar.is-fixed-top')
-const portCont = document.querySelector('#port-content')
+const html = document.querySelector("html");
+const navBar = document.querySelector(".navbar");
+const navItem = navBar.querySelectorAll(".navbar-item");
+const portBox = document.querySelector("#port-content");
 
-const projectBox = document.querySelector('#project ul.project-list')
-const projectCatBtn = document.querySelectorAll('.project-btn-list > button')
-const projectList = projectBox.querySelectorAll('li')
+const aboutBox = document.querySelector("#about");
+const skillBox = document.querySelector("#skill");
+const certBox = document.querySelector("#certificate");
+const projBox = document.querySelector("#project");
+const contactBox = document.querySelector("#contact");
 
-const setPosition = obj => {
-    let top = $(`#${obj.target}`).position().top;
-    $("a.navbar-item").removeClass("on");
-    $("a.navbar-item:nth-child("+obj.idx+")").addClass("on");
-    $('html, body').animate({scrollTop: top}, 600);
-}
+const projectBox = projBox.querySelector("ul.project-list");
+const projectCatBtn = projBox.querySelectorAll(".project-btn-list > button");
+const projectList = projectBox.querySelectorAll("li");
 
-const show_portfolio = () => {
-    if (portCont.style.display === '') {
-        portCont.style.display = 'block'
-        navBar.style['z-index'] = 30
-    }
-}
+const topBtn = document.querySelector(".top");
+const moreBtn = document.querySelector("#more-btn");
+const menus = [html, aboutBox, skillBox, certBox, projBox, contactBox];
 
-const topBtn = document.querySelector('.top')
-const goToTop = () => {
-    $("html").animate({scrollTop:0}, 400);
-}
-topBtn.addEventListener('click', goToTop)
-
-let str_idx = 0;
-
-window.onload = goToTop
-window.onscroll = () => {
-    let scroll = $(this).scrollTop()
-    scroll < 400 ? $(".top").fadeOut() : $(".top").fadeIn()
-
-    if (0 <= scroll && scroll < $("#about").position().top / 4) {
-        $("a.navbar-item").removeClass("on");
-        $("a.navbar-item:nth-child(1)").addClass("on");
-    }
-    else if ($("#about").position().top / 4 <= scroll && scroll < ($("#about").position().top + $("#skill").position().top ) / 2) {
-        $("a.navbar-item").removeClass("on");
-        $("a.navbar-item:nth-child(2)").addClass("on");
-    }
-    else if (($("#about").position().top+$("#skill").position().top) / 2 <= scroll && scroll < $("#skill").position().top) {
-        $("a.navbar-item").removeClass("on");
-        $("a.navbar-item:nth-child(3)").addClass("on");
-    }
-    else if ($("#skill").position().top <= scroll && scroll < $("#certificate").position().top) {
-        $("a.navbar-item").removeClass("on");
-        $("a.navbar-item:nth-child(4)").addClass("on");
-    }
-    else if ($("#certificate").position().top <= scroll && scroll < $("#project").position().top) {
-        $("a.navbar-item").removeClass("on");
-        $("a.navbar-item:nth-child(5)").addClass("on");
-    }
-    else if ($("#project").position().top <= scroll && scroll < $("#contact").position().top) {
-        $("a.navbar-item").removeClass("on");
-        $("a.navbar-item:nth-child(6)").addClass("on");
-    }
-
-}
-
-projectCatBtn.forEach(e => e.addEventListener('click', e2 => {
-    projectCatBtn.forEach(e => e.classList.remove('selected'))
-    e.classList.add('selected')
-
-    const clsName = e2.target.value
-    if (clsName != '') {
-        projectList.forEach(e => e.classList.add('hide'))
-        projectBox.querySelectorAll(`li.is-${clsName}`).forEach(e => e.classList.remove('hide'))
+const animationPositionY = (end, time = 150) => {
+  let scroll = html.scrollTop;
+  const isIncrease = scroll < end;
+  const offset = Math.abs(end - scroll) / time;
+  const ani = setInterval(() => {
+    if (isIncrease) {
+      scroll += offset;
+      html.scrollTop = Math.min(scroll, end);
+      scroll >= end && clearInterval(ani);
     } else {
-        projectList.forEach(e => e.classList.remove('hide'))
+      scroll -= offset;
+      html.scrollTop = Math.max(scroll, end);
+      scroll <= end && clearInterval(ani);
     }
-}))
+  });
+};
+navItem.forEach((e, i) =>
+  e.addEventListener("click", () => handlePositionY(i))
+);
+
+const handlePositionY = (idx) => {
+  let top = menus[idx].offsetTop;
+  navItem.forEach((e) => e.classList.remove("on"));
+  navItem[idx].classList.add("on");
+  animationPositionY(top);
+};
+
+const handleMore = () => {
+  portBox.classList.remove("hidden");
+  navBar.classList.remove("hidden");
+  handlePositionY(1, 100);
+};
+moreBtn.addEventListener("click", handleMore);
+
+const handleTop = () => {
+  html.scrollTop = 0;
+};
+topBtn.addEventListener("click", handleTop);
+
+const handleTopVisible = () => {
+  scrollY < 400
+    ? topBtn.classList.add("hidden")
+    : topBtn.classList.remove("hidden");
+};
+
+const handleNavOrder = () => {
+  return scrollY > (contactBox.offsetTop + projBox.offsetTop) / 2
+    ? 5
+    : scrollY > (projBox.offsetTop + certBox.offsetTop) / 2
+    ? 4
+    : scrollY > (certBox.offsetTop + skillBox.offsetTop) / 2
+    ? 3
+    : scrollY > (skillBox.offsetTop + aboutBox.offsetTop) / 2
+    ? 2
+    : scrollY > aboutBox.offsetTop / 4
+    ? 1
+    : 0;
+};
+
+const handleScroll = () => {
+  handleTopVisible();
+  navItem.forEach((e) => e.classList.remove("on"));
+  navItem[handleNavOrder()].classList.add("on");
+};
+window.addEventListener("scroll", handleScroll);
+
+const handleProjectVisible = (e) => {
+  e.addEventListener("click", ({ target }) => {
+    projectCatBtn.forEach((e) => e.classList.remove("selected"));
+    e.classList.add("selected");
+
+    if (target.value) {
+      projectList.forEach((e) => e.classList.add("hidden"));
+      projectBox
+        .querySelectorAll(`li.is-${target.value}`)
+        .forEach((e) => e.classList.remove("hidden"));
+    } else {
+      projectList.forEach((e) => e.classList.remove("hidden"));
+    }
+  });
+};
+projectCatBtn.forEach(handleProjectVisible);
