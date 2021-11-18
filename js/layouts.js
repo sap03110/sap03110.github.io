@@ -52,7 +52,7 @@ const handleMore = () => {
 moreBtn.addEventListener("click", handleMore);
 
 const handleTop = () => {
-  html.scrollTop = 0;
+  handlePositionY(0, 100);
 };
 topBtn.addEventListener("click", handleTop);
 
