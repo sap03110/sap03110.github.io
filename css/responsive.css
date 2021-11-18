@@ -1,0 +1,49 @@
+@media (max-width: 768px) {
+  #project ul.project-list > li:not(.hidden) {
+    width: 100%;
+  }
+
+  #skill .container > .columns {
+    display: block !important;
+  }
+
+  .timeline .timeline-box {
+    width: 40%;
+  }
+}
+
+@media (max-width: 992px) {
+  #project ul.project-list > li {
+    width: calc(50% - 20px);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media screen and (max-width: 1215px) {
+  .container {
+    max-width: 1152px;
+  }
+}
+
+@media screen and (max-width: 1407px) {
+  .container {
+    max-width: 1344px;
+  }
+}
+
+@media screen and (min-width: 1216px) {
+  .container {
+    max-width: 1152px;
+  }
+}
+
+@media screen and (min-width: 1408px) {
+  .container {
+    max-width: 1344px;
+  }
+}

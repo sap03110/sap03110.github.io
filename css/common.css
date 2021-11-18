@@ -170,6 +170,7 @@ h4 {
 }
 
 .skill-name {
+  max-width: 100px;
   margin-bottom: 10px;
 }
 
@@ -472,6 +473,7 @@ footer {
   height: 1.25rem;
   overflow: hidden;
   padding: 0;
+  max-width: 240px;
   width: 100%;
   margin: 0 auto;
 }
@@ -490,22 +492,6 @@ figure.image img.profile {
   height: 128px;
   width: 128px;
   object-fit: cover;
-}
-
-@media (max-width: 992px) {
-  #project ul.project-list > li {
-    width: calc(50% - 20px);
-  }
-}
-
-@media (max-width: 768px) {
-  #project ul.project-list > li:not(.hidden) {
-    width: 100%;
-  }
-
-  #project figure {
-    background-size: 100% auto;
-  }
 }
 
 .hidden {
