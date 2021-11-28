@@ -1,7 +1,6 @@
 @font-face {
-  font-family: "GoyangIlsan";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GoyangIlsan.woff")
-    format("woff");
+  font-family: 'GoyangIlsan';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GoyangIlsan.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -52,7 +51,7 @@
 }
 
 .titles:before {
-  content: "";
+  content: '';
   width: 50px;
   height: 2px;
   background: #333;
@@ -249,6 +248,7 @@ nav.navbar .navbar-menu .navbar-item:hover {
   transition: all 0.3s ease;
   -webkit-transform: scale(1.05);
 }
+
 #project figcaption {
   position: absolute;
   display: none;
@@ -261,6 +261,9 @@ nav.navbar .navbar-menu .navbar-item:hover {
   color: #fff;
   border-radius: 10px;
   justify-content: center;
+}
+#project figcaption > div {
+  padding: 1.5rem;
 }
 
 #project figcaption h4 {
@@ -329,7 +332,7 @@ footer {
 
 .timeline:before {
   background: #111;
-  content: "";
+  content: '';
   display: block;
   height: 100%;
   left: 50%;
@@ -381,7 +384,7 @@ footer {
 
 .timeline .timeline-box:before {
   border-radius: 50%;
-  content: "";
+  content: '';
   display: block;
   width: 10px;
   height: 10px;
@@ -398,7 +401,7 @@ footer {
 
 .timeline .timeline-box.left .timeline-box-arrow {
   transform: rotate(45deg);
-  content: "";
+  content: '';
   display: block;
   background: #fff;
   border-right: 1px solid #ddd;
@@ -413,7 +416,7 @@ footer {
 
 .timeline .timeline-box.right .timeline-box-arrow {
   transform: rotate(45deg);
-  content: "";
+  content: '';
   display: block;
   background: #fff;
   border-left: 1px solid #ddd;
