@@ -1,20 +1,22 @@
-const html = document.querySelector("html");
-const navBar = document.querySelector(".navbar");
-const navItem = navBar.querySelectorAll(".navbar-item");
-const portBox = document.querySelector("#port-content");
+import db from '../databases/db.js';
 
-const aboutBox = document.querySelector("#about");
-const skillBox = document.querySelector("#skill");
-const certBox = document.querySelector("#certificate");
-const projBox = document.querySelector("#project");
-const contactBox = document.querySelector("#contact");
+const html = document.querySelector('html');
+const navBar = document.querySelector('.navbar');
+const navItem = navBar.querySelectorAll('.navbar-item');
+const portBox = document.querySelector('#port-content');
 
-const projectBox = projBox.querySelector("ul.project-list");
-const projectCatBtn = projBox.querySelectorAll(".project-btn-list > button");
-const projectList = projectBox.querySelectorAll("li");
+const aboutBox = document.querySelector('#about');
+const skillBox = document.querySelector('#skill');
+const certBox = document.querySelector('#certificate');
+const projBox = document.querySelector('#project');
+const contactBox = document.querySelector('#contact');
 
-const topBtn = document.querySelector(".top");
-const moreBtn = document.querySelector("#more-btn");
+const projectBox = projBox.querySelector('ul.project-list');
+const projectCatBtn = projBox.querySelectorAll('.project-btn-list > button');
+const projectList = projectBox.querySelectorAll('li');
+
+const topBtn = document.querySelector('.top');
+const moreBtn = document.querySelector('#more-btn');
 const menus = [html, aboutBox, skillBox, certBox, projBox, contactBox];
 
 const animationPositionY = (end, time = 150) => {
@@ -33,33 +35,29 @@ const animationPositionY = (end, time = 150) => {
     }
   });
 };
-navItem.forEach((e, i) =>
-  e.addEventListener("click", () => handlePositionY(i))
-);
+navItem.forEach((e, i) => e.addEventListener('click', () => handlePositionY(i)));
 
 const handlePositionY = (idx) => {
   let top = menus[idx].offsetTop;
-  navItem.forEach((e) => e.classList.remove("on"));
-  navItem[idx].classList.add("on");
+  navItem.forEach((e) => e.classList.remove('on'));
+  navItem[idx].classList.add('on');
   animationPositionY(top);
 };
 
 const handleMore = () => {
-  portBox.classList.remove("hidden");
-  navBar.classList.remove("hidden");
+  portBox.classList.remove('hidden');
+  navBar.classList.remove('hidden');
   handlePositionY(1, 100);
 };
-moreBtn.addEventListener("click", handleMore);
+moreBtn.addEventListener('click', handleMore);
 
 const handleTop = () => {
   handlePositionY(0, 100);
 };
-topBtn.addEventListener("click", handleTop);
+topBtn.addEventListener('click', handleTop);
 
 const handleTopVisible = () => {
-  scrollY < 400
-    ? topBtn.classList.add("hidden")
-    : topBtn.classList.remove("hidden");
+  scrollY < 400 ? topBtn.classList.add('hidden') : topBtn.classList.remove('hidden');
 };
 
 const handleNavOrder = () => {
@@ -78,24 +76,39 @@ const handleNavOrder = () => {
 
 const handleScroll = () => {
   handleTopVisible();
-  navItem.forEach((e) => e.classList.remove("on"));
-  navItem[handleNavOrder()].classList.add("on");
+  navItem.forEach((e) => e.classList.remove('on'));
+  navItem[handleNavOrder()].classList.add('on');
 };
-window.addEventListener("scroll", handleScroll);
+window.addEventListener('scroll', handleScroll);
 
 const handleProjectVisible = (e) => {
-  e.addEventListener("click", ({ target }) => {
-    projectCatBtn.forEach((e) => e.classList.remove("selected"));
-    e.classList.add("selected");
+  e.addEventListener('click', ({ target }) => {
+    projectCatBtn.forEach((e) => e.classList.remove('selected'));
+    e.classList.add('selected');
 
     if (target.value) {
-      projectList.forEach((e) => e.classList.add("hidden"));
-      projectBox
-        .querySelectorAll(`li.is-${target.value}`)
-        .forEach((e) => e.classList.remove("hidden"));
+      projectList.forEach((e) => e.classList.add('hidden'));
+      projectBox.querySelectorAll(`li.is-${target.value}`).forEach((e) => e.classList.remove('hidden'));
     } else {
-      projectList.forEach((e) => e.classList.remove("hidden"));
+      projectList.forEach((e) => e.classList.remove('hidden'));
     }
   });
 };
 projectCatBtn.forEach(handleProjectVisible);
+
+window.addEventListener('load', () => {
+  projectBox.innerHTML = db.reduce(
+    (a, b) => a + `
+    <li class="is-${b.type}">
+      <figure style="background-image: url(${b.imgUrl});">
+        <figcaption>
+          <div>
+            <h4>${b.title}</h4>
+            <a target="_blank" href="${b.url}" class="go-btn">이동</a>
+          </div>
+        </figcaption>
+      </figure>
+    </li>
+    `, ''
+  );
+});
