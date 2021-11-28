@@ -122,7 +122,7 @@ const handleSlider = () => {
 
 const setPopup = (data) => {
   const { title, content, date, stacks, roles, url, gitUrl, demoUrl, screenshots } = data;
-  console.log(url, gitUrl, demoUrl)
+  
   projectPopup.querySelector('.pop-title').textContent = title;
   projectPopup.querySelector('.pop-content').textContent = content;
   projectPopup.querySelector('.pop-date').textContent = date;
@@ -133,8 +133,9 @@ const setPopup = (data) => {
     ${(demoUrl || '') && `<a href="${demoUrl}" target="_blank">데모 바로가기</a>`}
     ${(gitUrl || '') && `<a href="${gitUrl}" target="_blank">Github 바로가기</a>`}
   `;
-  projectPopup.querySelector('.img-slider').innerHTML = screenshots ? screenshots.reduce((a, b) => a + `<img src="${b}" />`, '') : '';
+  projectImgSlider.innerHTML = screenshots ? screenshots.reduce((a, b) => a + `<img src="${b}" />`, '') : '';
 };
+
 const handlePopup = ({ target }) => {
   togglePopup();
   setPopup(db[target.dataset.id]);

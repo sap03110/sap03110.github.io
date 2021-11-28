@@ -628,6 +628,7 @@ figure.image img.profile {
   display: flex;
   cursor: grab;
   overflow-x: auto;
+  height: 230px;
 }
 
 .popup .pop-body .img-slider > img {
