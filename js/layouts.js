@@ -14,6 +14,9 @@ const contactBox = document.querySelector('#contact');
 const projectBox = projBox.querySelector('ul.project-list');
 const projectCatBtn = projBox.querySelectorAll('.project-btn-list > button');
 const projectList = projectBox.querySelectorAll('li');
+const projectPopup = document.querySelector('.popup');
+const projectPopupCloseBtn = projectPopup.querySelector('.exit-btn');
+const projectImgSlider = projectPopup.querySelector('.img-slider');
 
 const topBtn = document.querySelector('.top');
 const moreBtn = document.querySelector('#more-btn');
@@ -96,19 +99,65 @@ const handleProjectVisible = (e) => {
 };
 projectCatBtn.forEach(handleProjectVisible);
 
+const togglePopup = () => projectPopup.classList.toggle('on');
+projectPopupCloseBtn.addEventListener('click', togglePopup);
+
+const handleSlider = () => {
+  let isDown = false,
+  startX,
+  scrollLeft;
+  projectImgSlider.addEventListener("mousedown", (e) => {
+    isDown = true;
+    startX = e.pageX - projectImgSlider.offsetLeft;
+    scrollLeft = projectImgSlider.scrollLeft;
+  });
+  projectImgSlider.addEventListener("mouseleave", () => isDown = false);
+  projectImgSlider.addEventListener("mouseup", () => isDown = false);
+  projectImgSlider.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    projectImgSlider.scrollLeft = scrollLeft - e.pageX + projectImgSlider.offsetLeft + startX;
+  });
+};
+
+const setPopup = (data) => {
+  const { title, content, date, stacks, roles, url, gitUrl, demoUrl, screenshots } = data;
+  console.log(url, gitUrl, demoUrl)
+  projectPopup.querySelector('.pop-title').textContent = title;
+  projectPopup.querySelector('.pop-content').textContent = content;
+  projectPopup.querySelector('.pop-date').textContent = date;
+  projectPopup.querySelector('.skill-box').innerHTML = stacks.reduce((a, b) => a + `<span class="skill-hashtag">${b}</span>`, '');
+  projectPopup.querySelector('.role-list').innerHTML = roles ? roles.reduce((a, b) => a + `<li>${b}</li>`, '') : '개인 토이 프로젝트입니다.';
+  projectPopup.querySelector('.link-box').innerHTML = `
+    ${(url || '') && `<a href="${url}" target="_blank">서비스 바로가기</a>`}
+    ${(demoUrl || '') && `<a href="${demoUrl}" target="_blank">데모 바로가기</a>`}
+    ${(gitUrl || '') && `<a href="${gitUrl}" target="_blank">Github 바로가기</a>`}
+  `;
+  projectPopup.querySelector('.img-slider').innerHTML = screenshots ? screenshots.reduce((a, b) => a + `<img src="${b}" />`, '') : '';
+};
+const handlePopup = ({ target }) => {
+  togglePopup();
+  setPopup(db[target.dataset.id]);
+};
+
 window.addEventListener('load', () => {
   projectBox.innerHTML = db.reduce(
-    (a, b) => a + `
+    (a, b, i) =>
+      a +
+      `
     <li class="is-${b.type}">
       <figure style="background-image: url(${b.imgUrl});">
         <figcaption>
           <div>
             <h4>${b.title}</h4>
-            <a target="_blank" href="${b.url}" class="go-btn">이동</a>
+            <button type="button" class="proj-more-btn" data-id="${i}">view more</button>
           </div>
         </figcaption>
       </figure>
     </li>
-    `, ''
+    `,
+    '',
   );
+  projectBox.querySelectorAll('.proj-more-btn').forEach((e) => e.addEventListener('click', handlePopup));
+  handleSlider();
 });
