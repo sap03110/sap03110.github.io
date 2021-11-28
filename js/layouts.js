@@ -121,7 +121,7 @@ const handleSlider = () => {
 };
 
 const setPopup = (data) => {
-  const { title, content, date, stacks, roles, url, gitUrl, demoUrl, screenshots } = data;
+  const { title, content, date, stacks, roles, url, gitUrl, demoUrl, demoUrl2, demoUrl3, screenshots } = data;
   
   projectPopup.querySelector('.pop-title').textContent = title;
   projectPopup.querySelector('.pop-content').textContent = content;
@@ -131,6 +131,8 @@ const setPopup = (data) => {
   projectPopup.querySelector('.link-box').innerHTML = `
     ${(url || '') && `<a href="${url}" target="_blank">서비스 바로가기</a>`}
     ${(demoUrl || '') && `<a href="${demoUrl}" target="_blank">데모 바로가기</a>`}
+    ${(demoUrl2 || '') && `<a href="${demoUrl2}" target="_blank">데모 바로가기 2</a>`}
+    ${(demoUrl3 || '') && `<a href="${demoUrl3}" target="_blank">데모 바로가기 3</a>`}
     ${(gitUrl || '') && `<a href="${gitUrl}" target="_blank">Github 바로가기</a>`}
   `;
   projectImgSlider.innerHTML = screenshots ? screenshots.reduce((a, b) => a + `<img src="${b}" />`, '') : '';
