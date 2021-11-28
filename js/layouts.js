@@ -13,7 +13,6 @@ const contactBox = document.querySelector('#contact');
 
 const projectBox = projBox.querySelector('ul.project-list');
 const projectCatBtn = projBox.querySelectorAll('.project-btn-list > button');
-const projectList = projectBox.querySelectorAll('li');
 const projectPopup = document.querySelector('.popup');
 const projectPopupCloseBtn = projectPopup.querySelector('.exit-btn');
 const projectImgSlider = projectPopup.querySelector('.img-slider');
@@ -22,7 +21,7 @@ const topBtn = document.querySelector('.top');
 const moreBtn = document.querySelector('#more-btn');
 const menus = [html, aboutBox, skillBox, certBox, projBox, contactBox];
 
-const animationPositionY = (end, time = 150) => {
+const animationPositionY = (end, time) => {
   let scroll = html.scrollTop;
   const isIncrease = scroll < end;
   const offset = Math.abs(end - scroll) / time;
@@ -40,11 +39,11 @@ const animationPositionY = (end, time = 150) => {
 };
 navItem.forEach((e, i) => e.addEventListener('click', () => handlePositionY(i)));
 
-const handlePositionY = (idx) => {
+const handlePositionY = (idx, time = 150) => {
   let top = menus[idx].offsetTop;
   navItem.forEach((e) => e.classList.remove('on'));
   navItem[idx].classList.add('on');
-  animationPositionY(top);
+  animationPositionY(top, time);
 };
 
 const handleMore = () => {
@@ -90,30 +89,33 @@ const handleProjectVisible = (e) => {
     e.classList.add('selected');
 
     if (target.value) {
-      projectList.forEach((e) => e.classList.add('hidden'));
+      projectBox.querySelectorAll('li').forEach((e) => e.classList.add('hidden'));
       projectBox.querySelectorAll(`li.is-${target.value}`).forEach((e) => e.classList.remove('hidden'));
     } else {
-      projectList.forEach((e) => e.classList.remove('hidden'));
+      projectBox.querySelectorAll('li').forEach((e) => e.classList.remove('hidden'));
     }
   });
 };
 projectCatBtn.forEach(handleProjectVisible);
 
-const togglePopup = () => projectPopup.classList.toggle('on');
+const togglePopup = () => {
+  projectPopup.querySelector('.pop-body').scrollTop = 0;
+  projectPopup.classList.toggle('on');
+};
 projectPopupCloseBtn.addEventListener('click', togglePopup);
 
 const handleSlider = () => {
   let isDown = false,
-  startX,
-  scrollLeft;
-  projectImgSlider.addEventListener("mousedown", (e) => {
+    startX,
+    scrollLeft;
+  projectImgSlider.addEventListener('mousedown', (e) => {
     isDown = true;
     startX = e.pageX - projectImgSlider.offsetLeft;
     scrollLeft = projectImgSlider.scrollLeft;
   });
-  projectImgSlider.addEventListener("mouseleave", () => isDown = false);
-  projectImgSlider.addEventListener("mouseup", () => isDown = false);
-  projectImgSlider.addEventListener("mousemove", (e) => {
+  projectImgSlider.addEventListener('mouseleave', () => (isDown = false));
+  projectImgSlider.addEventListener('mouseup', () => (isDown = false));
+  projectImgSlider.addEventListener('mousemove', (e) => {
     if (!isDown) return;
     e.preventDefault();
     projectImgSlider.scrollLeft = scrollLeft - e.pageX + projectImgSlider.offsetLeft + startX;
@@ -122,12 +124,17 @@ const handleSlider = () => {
 
 const setPopup = (data) => {
   const { title, content, date, stacks, roles, url, gitUrl, demoUrl, demoUrl2, demoUrl3, screenshots } = data;
-  
+
   projectPopup.querySelector('.pop-title').textContent = title;
   projectPopup.querySelector('.pop-content').textContent = content;
   projectPopup.querySelector('.pop-date').textContent = date;
-  projectPopup.querySelector('.skill-box').innerHTML = stacks.reduce((a, b) => a + `<span class="skill-hashtag">${b}</span>`, '');
-  projectPopup.querySelector('.role-list').innerHTML = roles ? roles.reduce((a, b) => a + `<li>${b}</li>`, '') : '개인 토이 프로젝트입니다.';
+  projectPopup.querySelector('.skill-box').innerHTML = stacks.reduce(
+    (a, b) => a + `<span class="skill-hashtag">${b}</span>`,
+    '',
+  );
+  projectPopup.querySelector('.role-list').innerHTML = roles
+    ? roles.reduce((a, b) => a + `<li>${b}</li>`, '')
+    : '개인 토이 프로젝트입니다.';
   projectPopup.querySelector('.link-box').innerHTML = `
     ${(url || '') && `<a href="${url}" target="_blank">서비스 바로가기</a>`}
     ${(demoUrl || '') && `<a href="${demoUrl}" target="_blank">데모 바로가기</a>`}

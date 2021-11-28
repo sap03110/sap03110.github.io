@@ -306,10 +306,13 @@ export default [
       'NCP',
       'Github Actions',
     ],
+    roles: [
+      '1.   추가 예정입니다.',
+    ],
     imgUrl: 'images/project/booduck.png',
     url: 'http://booducksound.kro.kr',
     gitUrl: 'https://github.com/boostcampwm-2021/web02-booducksound',
-    type: 'toy',
+    type: 'web',
     content: '',
     screenshots: [
       'images/screenshots/booduck/1.png',
