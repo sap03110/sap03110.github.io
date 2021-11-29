@@ -1,6 +1,7 @@
 import db from '../databases/db.js';
 
 const html = document.querySelector('html');
+const body = document.querySelector('body');
 const navBar = document.querySelector('.navbar');
 const navItem = navBar.querySelectorAll('.navbar-item');
 const portBox = document.querySelector('#port-content');
@@ -100,7 +101,7 @@ projectCatBtn.forEach(handleProjectVisible);
 
 const togglePopup = () => {
   projectPopup.querySelector('.pop-body').scrollTop = 0;
-  projectPopup.classList.toggle('on');
+  body.classList.toggle('popup-on');
 };
 projectPopupCloseBtn.addEventListener('click', togglePopup);
 

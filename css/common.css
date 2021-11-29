@@ -539,7 +539,11 @@ figure.image img.profile {
   overflow: hidden;
 }
 
-.popup.on {
+body.popup-on {
+  overflow-y: hidden;
+}
+
+body.popup-on .popup {
   display: flex;
 }
 
@@ -657,6 +661,7 @@ figure.image img.profile {
   font-size: 0.9rem;
   margin: 0 4px;
   color: #fff;
+  display: inline-block;
 }
 
 .popup .pop-body .link-box > a:hover {
