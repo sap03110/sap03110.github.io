@@ -1,18 +1,22 @@
 export default [
   {
     title: '디지털 사회혁신 온라인 플랫폼 개발',
-    date: '2020.06 ~ 2021.11, 선도소프트',
+    date: '2020.06 ~ 2020.11, 선도소프트',
     stacks: ['Java', 'Javascript', 'jQuery', 'Spring', 'PostgreSQL', 'NCP'],
     roles: [
-      '1.   플랫폼 전반 UI/UX 화면설계 및 퍼블리싱',
-      '2.   플랫폼 기능 전반 구현',
-      '- 사용자 웹 전반 구현 담당',
-      '3.   웹 접근성(WA) 처리 담당',
+      '1.   플랫폼 UI/UX 화면설계 및 퍼블리싱',
+      '2.   플랫폼 사용자 웹 전반 풀스택 개발',
+      '3.   웹 접근성(WA) 인증 및 크로스 브라우징 처리',
     ],
     imgUrl: 'images/project/dsi.png',
     url: 'https://www.dsikr.com',
     type: 'web',
-    content: '',
+    content: [
+      '선도소프트에 입사하여 처음으로 수행한 신규 서비스 개발입니다. 제안 단계부터 제안서 작성에 참여 및 데모 사이트 개발을 수행하여 사업 수주에 작은 기여를 했습니다.',
+      '팀 내의 유일한 개발자로서, 화면 설계 및 서비스 기획 단계부터 참여하여 프로젝트 환경 설정과 사용자 웹의 풀스택 개발을 총괄하여 담당했습니다.',
+      '플랫폼의 전체적인 디자인 개선을 위해 프리랜서 디자이너와 피그마를 통해 협업을 진행했고, 웹 접근성과 반응형을 준수하여 개발을 진행했습니다.',
+      '웹 접근성 품질 인증(WA)을 취득했습니다. 웹 접근성 개선 및 크로스 브라우징 처리를 위해 탭 이동, 바로가기 버튼 제공, 명도 대비 수정 등 다양한 작업을 수행했고, 자막 및 레이블 제공의 경우에는 직접 스크린 리더를 이용하여 테스트를 진행했습니다. ',
+    ],
     screenshots: [
       'images/screenshots/dsi/1.png',
       'images/screenshots/dsi/2.png',
@@ -44,7 +48,10 @@ export default [
     imgUrl: 'images/project/incu.png',
     url: 'http://www.dongjakin.com',
     type: 'web',
-    content: '',
+    content: [
+      '부서 내 다수의 신입 개발자들을 포함한 외부 인력들과 협업하여 플랫폼 개발을 진행했습니다. 신입 개발자들의 개발 관련 질문을 받아주고 오류 해결을 도와 팀 내 업무 적응을 도왔습니다. ',
+      '채팅의 경우, 실시간성을 보장하기 위해 별도의 socket.io 서버를 구축하여 기능을 구현했습니다. 사용자 편리성을 고려하여 채팅 접속 여부와 타이핑 여부를 확인할 수 있는 기능 및 이미지, 파일 업로드 기능도 추가했습니다.',
+    ],
     screenshots: [
       'images/screenshots/dongjak/1.png',
       'images/screenshots/dongjak/2.png',
@@ -68,8 +75,9 @@ export default [
     imgUrl: 'images/project/movie.png',
     url: 'http://210.113.102.160:9090',
     type: 'web',
-    content:
+    content: [
       '영화 명대사 검색의 정확도를 높이기 위해 Elasticsearch 기반으로 간단한 검색엔진을 구현했습니다. Logstash를 이용하여 인덱싱을 진행했고, Nori 형태소 분석기를 적용했습니다. 검색엔진 관리를 위해 Spring을 이용한 관리 웹사이트를 구현했습니다.',
+    ],
     screenshots: ['images/screenshots/poc/1.png', 'images/screenshots/poc/2.png'],
   },
   {
@@ -85,8 +93,9 @@ export default [
     imgUrl: 'images/project/seogu_transfer.png',
     url: 'https://www.seo.incheon.kr/open_content/theme/transfer.do',
     type: 'web',
-    content:
-      '소통1번가 홈페이지 유지보수 사업에서 새롭게 추가되는 3대 주제(전입, 치매, 복지) 중 하나인 전입 메뉴를 풀스택 개발을 담당했습니다. 전입 메뉴 내 전입자생활팁 조회, 문화나누미 등 다양한 기능을 구현했으며, 크로스 브라우징을 통해 IE에서도 모든 기능을 이용할 수 있도록 고려하여 개발을 진행했습니다.',
+    content: [
+      '소통1번가 홈페이지 유지보수 사업에서 새롭게 추가되는 3대 주제(전입, 치매, 복지) 중 하나인 전입 메뉴의 풀스택 개발을 담당했습니다. 전입 메뉴 내 전입자생활팁 조회, 문화나누미 등 다양한 기능을 구현했으며, 크로스 브라우징을 통해 IE에서도 모든 기능을 이용할 수 있도록 고려하여 개발을 진행했습니다.',
+    ],
     screenshots: [
       'images/screenshots/transfer/1.png',
       'images/screenshots/transfer/2.png',
@@ -115,8 +124,11 @@ export default [
     demoUrl2: 'https://guiyomj.github.io/seogu-gis-admin',
     demoUrl3: 'https://guiyomj.github.io/seogu-chemical-map-publish',
     type: 'web',
-    content:
-      '소통1번가 홈페이지 유지보수 사업에서 새롭게 추가되는 대민용 지도 서비스와 유해화학물질 지도의 화면설계와 퍼블리싱을 담당했습니다. 모바일에서의 접근성을 고려하여 관리자 페이지를 제외한 대민용 및 유해화학물질 지도는 반응형 디자인으로 구현했습니다.',
+    content: [
+      '소통1번가 홈페이지 유지보수 사업에서 새롭게 추가되는 대민용 지도 서비스와 유해화학물질 지도의 화면설계와 퍼블리싱을 담당했습니다.',
+      '모바일에서의 접근성을 고려하여 관리자 페이지를 제외한 대민용 및 유해화학물질 지도는 반응형 디자인으로 구현했습니다.',
+      '대민용 지도 관리자 서비스의 프론트엔드와 사용자 관리 기능을 구현했습니다.',
+    ],
     screenshots: [
       'images/screenshots/seomap/1.png',
       'images/screenshots/seomap/2.png',
@@ -161,8 +173,9 @@ export default [
     imgUrl: 'images/project/seogu.png',
     demoUrl: 'https://guiyomj.github.io/seogu-dashboard-front',
     type: 'web',
-    content:
-      '인천 서구 내 민원 데이터 통계 및 시각화를 제공하는 민원 대시보드의 풀스택 개발을 전담했습니다. 대시보드 기능 개발 중 민원 데이터의 양이 너무 방대하여 쿼리 실행 시간이 굉장히 오래 걸리는 문제가 발생했고, 이를 해결하기 위해 쿼리 리팩토링을 진행하여 약 5초의 실행 시간을 단축시켰습니다.',
+    content: [
+      '민원 대시보드 개발을 진행하면서 내부망 포팅 이후 쿼리 속도 때문에 페이지 로딩이 비정상적으로 느려지는 문제가 발생했습니다. 쿼리 성능 최적화를 위해 REGEXP_LIKE 등 실행 시간이 오래 걸리는 함수를 제거하고, 불필요한 쿼리 연산을 최소화하여 쿼리 실행 시간을 50% 이상 단축시켰습니다.',
+    ],
     screenshots: ['images/screenshots/dash/1.png', 'images/screenshots/dash/2.png', 'images/screenshots/dash/3.png'],
   },
   {
@@ -173,8 +186,9 @@ export default [
     demoUrl: 'https://guiyomj.github.io/Newdeal_Demo',
     gitUrl: 'https://github.com/guiyomj/Newdeal_Demo',
     type: 'etc',
-    content:
+    content: [
       '디지털 뉴딜 대국민 교육 플랫폼 사업 제안을 위한 데모 사이트입니다. 화면 설계 및 HTML 구현을 맡아 진행했습니다.',
+    ],
     screenshots: [
       'images/screenshots/newdeal/1.png',
       'images/screenshots/newdeal/2.png',
@@ -241,13 +255,17 @@ export default [
       '1.   어플리케이션 UI/UX 화면설계 및 디자인, 퍼블리싱',
       '2.   영단어 데이터 크롤링 및 가공',
       '3.   데이터베이스 설계',
-      '4.   OCR API 결과값을 이용한 단어 추가 기능 구현',
+      '4.   OCR API 결과값을 이용한 단어 추가 + 뜻 크롤링 기능 구현',
       '5.   단어장 및 단어 PVP 메뉴 구현',
     ],
     imgUrl: 'images/project/vocket.png',
     gitUrl: 'https://github.com/guiyomj/vocket-app',
     type: 'android',
-    content: '',
+    content: [
+      '영단어 학습을 하면서 단어장을 갖고 다녀야 하는 불편함과 기존 단어장 어플리케이션의 기능적인 아쉬움 개선을 목적으로 만들게 된 앱입니다. 사진을 찍어서 단어를 추가할 수 있는 OCR 기능을 제공하며, 학습을 위한 기본 단어장 및 테스트 기능을 제공합니다.',
+      '3인 팀 프로젝트로 진행되었으며, 전체적인 화면설계와 기본 제공 영단어 DB 구축 및 단어장 관리 기능을 위주로 담당했습니다.',
+      '2인 단어 맞추기 게임인 단어 PVP 메뉴를 구현했습니다. 별도의 게임 서버를 만들지 않고 Firebase의 실시간 데이터베이스를 이용하여 구현했습니다. 영단어 뜻 추가 기능의 경우에는 Jsoup을 이용한 사전 크롤링 방식으로 구현했습니다.',
+    ],
     screenshots: [
       'images/screenshots/vocket/1.jpg',
       'images/screenshots/vocket/2.jpg',
@@ -272,16 +290,14 @@ export default [
     title: '독서실 관리 App Studyhall 개발',
     date: '2019.03 ~ 2019.06, 3인 캡스톤 팀 프로젝트',
     stacks: ['Java', 'Android Studio', 'Firebase'],
-    roles: [
-      '1.   어플리케이션 UI/UX 화면설계 및 디자인, 퍼블리싱',
-      '2.   데이터베이스 설계',
-      '3.   독서실 관리자 메뉴 구현',
-    ],
+    roles: ['1.   어플리케이션 UI/UX 화면설계 및 디자인, 퍼블리싱', '2.   독서실 관리자 메뉴 구현'],
     imgUrl: 'images/project/studyhall.png',
     gitUrl: 'https://github.com/guiyomj/studyhall-app',
     type: 'android',
-    content:
-      '독서실 총무로 일을 하면서 느꼈던 스터디룸 예약 및 컴플레인 관리 불편, 비회원들의 독서실 좌석 조회 불편 등 여러 불편 사항을 바탕으로 이를 개선하기 위해 만들게 된 앱입니다. 회원, 비회원, 관리자 모두가 사용할 수 있도록 기능을 제공하며, 대표적으로 스터디룸 예약, 좌석 상태 및 배치 조회, 체크인/체크아웃 기능을 제공합니다. 직접 근무중인 독서실 이용자들을 대상으로 설문조사를 진행하여 기획 내용에도 반영했습니다.',
+    content: [
+      '독서실 총무로 일을 하면서 느꼈던 스터디룸 예약 및 컴플레인 관리 불편, 비회원들의 독서실 좌석 조회 불편 등 여러 불편 사항을 바탕으로 이를 개선하기 위해 만들게 된 앱입니다. 회원, 비회원, 관리자 모두가 사용할 수 있도록 기능을 제공하며, 대표적으로 스터디룸 예약, 좌석 상태 및 배치 조회, 체크인/체크아웃 기능을 제공합니다.',
+      '3인 팀 프로젝트로 진행되었으며, 전체적인 화면설계와 디자인 및 독서실 관리자 메뉴 개발을 맡아 진행했습니다. 직접 근무중인 독서실 이용자들을 대상으로 설문조사를 진행하여 기획 내용에도 반영했습니다.',
+    ],
     screenshots: ['images/screenshots/studyhall/1.jpg', 'images/screenshots/studyhall/2.jpg'],
   },
   {
@@ -302,13 +318,21 @@ export default [
       'Github Actions',
     ],
     roles: [
-      '1.   추가 예정입니다.',
+      '1.   화면 설계 및 UI/UX 디자인',
+      '2.   로그인 및 회원가입 구현',
+      '- JWT 토큰 인증 방식의 로그인 구현',
+      '3.   SEO 최적화를 위한 메타태그 추가 및 네이버, 구글 검색엔진 최적화 등록',
+      '4.   마이페이지, 정답 및 힌트 처리 등 게임 관련 필수 기능 구현',
     ],
     imgUrl: 'images/project/booduck.png',
     url: 'http://booducksound.kro.kr',
     gitUrl: 'https://github.com/boostcampwm-2021/web02-booducksound',
     type: 'web',
-    content: '',
+    content: [
+      '4인 팀 프로젝트로, UI/UX 디자인과 풀스택 개발을 담당했습니다.',
+      '검색 엔진 최적화를 위해 Next.js를 사용하여 SSR 방식으로 개발을 진행했습니다. 이에 추가적으로 메타태그 추가와 네이버 및 구글 검색엔진 등록을 진행했습니다.',
+      'Atomic 디자인 패턴을 적용하여 컴포넌트 재사용성을 향상시켰습니다.',
+    ],
     screenshots: [
       'images/screenshots/booduck/1.png',
       'images/screenshots/booduck/2.png',
@@ -343,8 +367,10 @@ export default [
     imgUrl: 'images/project/everywhere.png',
     gitUrl: 'https://github.com/guiyomj/bookathon_C',
     type: 'toy',
-    content:
-      '부스트캠프 6기 멤버쉽 과정 부커톤 참여를 통해 만들게 된 동영상 배경 공유 서비스입니다. 화면 설계 및 프론트엔드 기능 개발을 맡아 진행했습니다.',
+    content: [
+      '하루동안 진행된 4인 팀 프로젝트로, UI/UX 디자인과 프론트엔드 개발을 담당했습니다.',
+      '전체적인 프론트엔드 화면 구현과 전체적인 동영상 업로드 기능, 동영상 데이터를 화면에 표출하는 기능을 담당했습니다.',
+    ],
     screenshots: ['images/screenshots/everywhere/1.png', 'images/screenshots/everywhere/2.png'],
   },
   {
@@ -355,8 +381,9 @@ export default [
     url: 'https://guiyomj.github.io/interest-test',
     gitUrl: 'https://github.com/guiyomj/interest-test',
     type: 'toy',
-    content:
-      '동작 人큐베이터 플랫폼 개발을 진행하면서 4차 산업혁명 관련 적성검사를 제공하는 메뉴를 만들게 되었습니다. 해당 검사 결과를 기반으로 한 맞춤 기업 추천 기능을 위해 로그인 한 사용자만 검사를 수행할 수 있도록 예외처리를 했었는데, 좀 더 많은 사용자들이 로그인을 하지 않고도 간단하게 테스트를 진행할 수 있다면 좋겠다는 생각이 들어 SPA 형태의 간이 검사를 만들게 되었습니다. 이 토이 프로젝트를 통해 처음으로 React.js에 입문하게 되었습니다.',
+    content: [
+      '동작 人큐베이터 플랫폼 개발을 진행하면서 4차 산업혁명 관련 적성검사를 제공하는 메뉴를 만들게 되었습니다. 해당 검사 결과를 기반으로 한 맞춤 기업 추천 기능을 위해 로그인 한 사용자만 검사를 수행할 수 있도록 예외처리를 했었는데, 좀 더 많은 사용자들이 로그인을 하지 않고도 간단하게 테스트를 진행할 수 있다면 좋겠다는 생각이 들어 SPA 형태의 간이 검사를 만들게 되었습니다.',
+    ],
     screenshots: [
       'images/screenshots/test/1.png',
       'images/screenshots/test/2.png',
@@ -377,8 +404,9 @@ export default [
     url: 'https://guiyomj.github.io/silence_of_the_lambs',
     gitUrl: 'https://github.com/guiyomj/silence_of_the_lambs',
     type: 'toy',
-    content:
+    content: [
       'DSI 온라인 플랫폼 개발을 진행하면서, 메인 화면의 물방울이 흩어지는 배경을 구현하기 위해 particles.js 라이브러리를 사용하여 개발을 진행했습니다. 커스텀을 위해 particles.js의 코드를 뜯어보면서, 이 라이브러리의 핵심 코드를 기반으로 한 간단한 게임을 만들면 어떨까? 라는 생각이 들어, 양을 잡아 점수를 얻는 간단한 게임을 만들었습니다.',
+    ],
     screenshots: [
       'images/screenshots/yang/1.png',
       'images/screenshots/yang/2.png',
@@ -396,8 +424,9 @@ export default [
     url: 'https://guiyomj.github.io/lh-deposit-calculator',
     gitUrl: 'https://github.com/guiyomj/lh-deposit-calculator',
     type: 'toy',
-    content:
+    content: [
       'LH 청년매입임대에 당첨되어 보증금 전환 제도를 알아보다가, 어렵고 복잡한 전환 보증금 계산식에 불편을 느껴 만들게 된 간단한 계산기입니다. 저처럼 보증금 계산에 불편을 느낀 분들에게 도움이 되길 바라는 마음에 관련 카페와 제 블로그에 공유를 진행했고, 몇몇 사용자들에게 좋은 반응을 들을 수 있었습니다.',
+    ],
     screenshots: ['images/screenshots/lh/1.png', 'images/screenshots/lh/2.png'],
   },
 ];

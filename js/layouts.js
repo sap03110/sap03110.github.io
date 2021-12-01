@@ -127,8 +127,15 @@ const setPopup = (data) => {
   const { title, content, date, stacks, roles, url, gitUrl, demoUrl, demoUrl2, demoUrl3, screenshots } = data;
 
   projectPopup.querySelector('.pop-title').textContent = title;
-  projectPopup.querySelector('.pop-content').textContent = content;
   projectPopup.querySelector('.pop-date').textContent = date;
+  projectPopup.querySelector('.pop-content').innerHTML = content.reduce(
+    (a, b) =>
+      a +
+      `
+  <li>${b}</li>
+  `,
+    '',
+  );
   projectPopup.querySelector('.skill-box').innerHTML = stacks.reduce(
     (a, b) => a + `<span class="skill-hashtag">${b}</span>`,
     '',
