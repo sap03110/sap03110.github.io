@@ -114,8 +114,19 @@ html {
   font-size: 20px;
 }
 
-.introduce h4 {
+.introduce .about-name,
+.introduce .about-birth {
   margin-bottom: 10px;
+}
+
+.introduce .about-github::before {
+  content: url(../images/ic_github.svg);
+  margin-right: 4px;
+}
+
+.introduce .about-blog::before {
+  content: url(../images/ic_blog.svg);
+  margin-right: 4px;
 }
 
 .homepage-btn-list {
@@ -160,12 +171,18 @@ html {
   margin-right: 5px;
 }
 
-h4 {
-  font-weight: 500;
+#contact p {
+  margin-bottom: 10px;
 }
 
-.h4 {
-  margin-bottom: 10px;
+#contact p.contact-phone::before {
+  content: '\ec46';
+  font-family: 'IcoFont';
+}
+
+#contact p.contact-email::before {
+  content: '\ec56';
+  font-family: 'IcoFont';
 }
 
 .skill-name {
@@ -177,7 +194,7 @@ nav.navbar {
   top: 0;
   position: fixed;
   right: 0;
-  z-index: 10;
+  z-index: 2;
 }
 
 nav.navbar .navbar-menu {
@@ -271,6 +288,7 @@ nav.navbar .navbar-menu .navbar-item:hover {
 #project figcaption h4 {
   word-break: keep-all;
   margin-bottom: 40px;
+  font-weight: 500;
 }
 
 #project figcaption .go-btn {
@@ -534,7 +552,7 @@ figure.image img.profile {
   align-items: center;
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   backdrop-filter: blur(10px);
   overflow: hidden;
 }
