@@ -22,40 +22,44 @@ const topBtn = document.querySelector('.top');
 const moreBtn = document.querySelector('#more-btn');
 const menus = [html, aboutBox, skillBox, certBox, projBox, contactBox];
 
-const animationPositionY = (end, time) => {
-  let scroll = html.scrollTop;
+const animate = (isIncrease, scroll, offset, end) => {
+  if (isIncrease) {
+    scroll += offset;
+    html.scrollTop = Math.min(scroll, end);
+    if (scroll >= end) return;
+  } else {
+    if (scroll <= end) return;
+    scroll -= offset;
+    html.scrollTop = Math.max(scroll, end);
+  }
+  requestAnimationFrame(() => animate(isIncrease, scroll, offset, end));
+};
+
+const animationPositionY = (end) => {
+  const scroll = html.scrollTop;
   const isIncrease = scroll < end;
-  const offset = Math.abs(end - scroll) / time;
-  const ani = setInterval(() => {
-    if (isIncrease) {
-      scroll += offset;
-      html.scrollTop = Math.min(scroll, end);
-      scroll >= end && clearInterval(ani);
-    } else {
-      scroll -= offset;
-      html.scrollTop = Math.max(scroll, end);
-      scroll <= end && clearInterval(ani);
-    }
-  });
+  const callback = () => animate(isIncrease, scroll, 50, end);
+  cancelAnimationFrame(callback);
+  requestAnimationFrame(callback);
 };
 navItem.forEach((e, i) => e.addEventListener('click', () => handlePositionY(i)));
 
-const handlePositionY = (idx, time = 150) => {
+const handlePositionY = (idx) => {
   let top = menus[idx].offsetTop;
   navItem.forEach((e) => e.classList.remove('on'));
   navItem[idx].classList.add('on');
-  animationPositionY(top, time);
+  animationPositionY(top);
 };
 
 const handleMore = () => {
   portBox.classList.remove('hidden');
   navBar.classList.remove('hidden');
-  handlePositionY(1, 100);
+  handlePositionY(1);
 };
 moreBtn.addEventListener('click', handleMore);
 
 const handleTop = () => {
-  handlePositionY(0, 100);
+  handlePositionY(0);
 };
 topBtn.addEventListener('click', handleTop);
 

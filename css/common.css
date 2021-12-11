@@ -191,6 +191,7 @@ html {
 }
 
 nav.navbar {
+  width: 100%;
   top: 0;
   position: fixed;
   right: 0;
