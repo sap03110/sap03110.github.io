@@ -224,8 +224,9 @@ export default [
     url: 'https://play.google.com/store/apps/details?id=com.sundosoft.qbig',
     gitUrl: 'https://github.com/guiyomj/qbig-app',
     type: 'android',
-    content:
+    content: [
       '구글 창구 프로그램 신청을 목적으로 만들게 된 자격증 학습 앱입니다. 짧은 기간 내에 모든 기획과 개발을 담당하다 보니 완성은 하지 못했지만 핵심 기능 위주로 구현을 진행했습니다.',
+    ],
     screenshots: [
       'images/screenshots/qbig/1.jpg',
       'images/screenshots/qbig/2.jpg',
