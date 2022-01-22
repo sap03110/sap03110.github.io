@@ -3,11 +3,7 @@ export default [
     title: '디지털 사회혁신 온라인 플랫폼 개발',
     date: '2020.06 ~ 2020.11, 선도소프트',
     stacks: ['Java', 'Javascript', 'jQuery', 'Spring', 'PostgreSQL', 'NCP'],
-    roles: [
-      '1.   플랫폼 UI/UX 화면설계 및 퍼블리싱',
-      '2.   플랫폼 사용자 웹 전반 풀스택 개발',
-      '3.   웹 접근성(WA) 인증 및 크로스 브라우징 처리',
-    ],
+    roles: ['1.   플랫폼 UI/UX 화면설계 및 퍼블리싱', '2.   플랫폼 사용자 웹 전반 풀스택 개발', '3.   웹 접근성(WA) 인증 및 크로스 브라우징 처리'],
     imgUrl: 'images/project/dsi.png',
     url: 'https://www.dsikr.com',
     type: 'web',
@@ -49,8 +45,7 @@ export default [
     url: 'http://www.dongjakin.com',
     type: 'web',
     content: [
-      '부서 내 다수의 신입 개발자들을 포함한 외부 인력들과 협업하여 플랫폼 개발을 진행했습니다. 신입 개발자들의 개발 관련 질문을 받아주고 오류 해결을 도와 팀 내 업무 적응을 도왔습니다. ',
-      '채팅의 경우, 실시간성을 보장하기 위해 별도의 socket.io 서버를 구축하여 기능을 구현했습니다. 사용자 편리성을 고려하여 채팅 접속 여부와 타이핑 여부를 확인할 수 있는 기능 및 이미지, 파일 업로드 기능도 추가했습니다.',
+      'socket.io를 이용하여 실시간 채팅 및 사용자 접속 여부와 타이핑 여부 확인 기능 및 이미지, 파일 업로드 기능을 제공하여 멘토링 사용자의 편의성을 향상시켰습니다.',
     ],
     screenshots: [
       'images/screenshots/dongjak/1.png',
@@ -67,11 +62,7 @@ export default [
     title: '한국영상자료원 대사검색 POC 개발',
     date: '2021.06 ~ 2021.06, 선도소프트',
     stacks: ['Node.js', 'Spring', 'Tomcat', 'Elasticsearch', 'logstash', 'React.js', 'Javascript'],
-    roles: [
-      '1.   Elasticsearch 기반 검색엔진 관리 웹사이트 개발',
-      '2.   Nori를 이용한 대사검색 API 구현',
-      '3.   웹 기반 대사검색 POC 프로토타입 구현',
-    ],
+    roles: ['1.   Elasticsearch 기반 검색엔진 관리 웹사이트 개발', '2.   Nori를 이용한 대사검색 API 구현', '3.   웹 기반 대사검색 POC 프로토타입 구현'],
     imgUrl: 'images/project/movie.png',
     url: 'http://210.113.102.160:9090',
     type: 'web',
@@ -82,7 +73,7 @@ export default [
   },
   {
     title: '인천 서구 소통1번가 홈페이지 전입 파트 개발',
-    date: '2020.06 ~ 2021.11, 선도소프트',
+    date: '2020.06 ~ 2021.12, 선도소프트',
     stacks: ['Java', 'Javascript', 'jQuery', 'Spring', 'Cubrid DB', 'Jeus'],
     roles: [
       '1.   소통1번가 전입 메뉴 기능 전반 구현',
@@ -186,9 +177,7 @@ export default [
     demoUrl: 'https://guiyomj.github.io/Newdeal_Demo',
     gitUrl: 'https://github.com/guiyomj/Newdeal_Demo',
     type: 'etc',
-    content: [
-      '디지털 뉴딜 대국민 교육 플랫폼 사업 제안을 위한 데모 사이트입니다. 화면 설계 및 HTML 구현을 맡아 진행했습니다.',
-    ],
+    content: ['디지털 뉴딜 대국민 교육 플랫폼 사업 제안을 위한 데모 사이트입니다. 화면 설계 및 HTML 구현을 맡아 진행했습니다.'],
     screenshots: [
       'images/screenshots/newdeal/1.png',
       'images/screenshots/newdeal/2.png',
@@ -264,8 +253,8 @@ export default [
     type: 'android',
     content: [
       '영단어 학습을 하면서 단어장을 갖고 다녀야 하는 불편함과 기존 단어장 어플리케이션의 기능적인 아쉬움 개선을 목적으로 만들게 된 앱입니다. 사진을 찍어서 단어를 추가할 수 있는 OCR 기능을 제공하며, 학습을 위한 기본 단어장 및 테스트 기능을 제공합니다.',
-      '3인 팀 프로젝트로 진행되었으며, 전체적인 화면설계와 기본 제공 영단어 DB 구축 및 단어장 관리 기능을 위주로 담당했습니다.',
-      '2인 단어 맞추기 게임인 단어 PVP 메뉴를 구현했습니다. 별도의 게임 서버를 만들지 않고 Firebase의 실시간 데이터베이스를 이용하여 구현했습니다. 영단어 뜻 추가 기능의 경우에는 Jsoup을 이용한 사전 크롤링 방식으로 구현했습니다.',
+      'Jsoup을 이용하여 Daum 단어사전의 단어 뜻을 크롤링하는 기능을 구현하여 사용자의 단어 추가 불편을 개선했습니다.',
+      '2인 단어 맞추기 게임인 단어 PVP 게임을 구현하여 사용자들이 효과적으로 단어 학습을 진행할 수 있도록 게이미피케이션 요소를 반영했습니다. 이에 대해 학우들에게 좋은 반응을 얻었습니다.',
     ],
     screenshots: [
       'images/screenshots/vocket/1.jpg',
@@ -291,37 +280,29 @@ export default [
     title: '독서실 관리 App Studyhall 개발',
     date: '2019.03 ~ 2019.06, 3인 캡스톤 팀 프로젝트',
     stacks: ['Java', 'Android Studio', 'Firebase'],
-    roles: ['1.   어플리케이션 UI/UX 화면설계 및 디자인, 퍼블리싱', '2.   독서실 관리자 메뉴 구현'],
+    roles: [
+      '1.   어플리케이션 UI/UX 화면설계 및 디자인, 퍼블리싱',
+      '2.   독서실 관리자 메뉴 구현',
+      '- 컴플레인 관리 기능 구현',
+      '- 사용자 관리 기능 구현',
+      '3.   블루투스 비콘을 이용한 입/퇴실 기능 구현',
+    ],
     imgUrl: 'images/project/studyhall.png',
     gitUrl: 'https://github.com/guiyomj/studyhall-app',
     type: 'android',
     content: [
       '독서실 총무로 일을 하면서 느꼈던 스터디룸 예약 및 컴플레인 관리 불편, 비회원들의 독서실 좌석 조회 불편 등 여러 불편 사항을 바탕으로 이를 개선하기 위해 만들게 된 앱입니다. 회원, 비회원, 관리자 모두가 사용할 수 있도록 기능을 제공하며, 대표적으로 스터디룸 예약, 좌석 상태 및 배치 조회, 체크인/체크아웃 기능을 제공합니다.',
-      '3인 팀 프로젝트로 진행되었으며, 전체적인 화면설계와 디자인 및 독서실 관리자 메뉴 개발을 맡아 진행했습니다. 직접 근무중인 독서실 이용자들을 대상으로 설문조사를 진행하여 기획 내용에도 반영했습니다.',
+      '3인 팀 프로젝트로 진행되었으며, 전체적인 화면설계와 디자인 및 독서실 관리자 메뉴 개발을 맡아 진행했습니다. 직접 근무중인 독서실 이용자들을 대상으로 설문조사를 진행하여 기획 내용에 반영했습니다.',
     ],
     screenshots: ['images/screenshots/studyhall/1.jpg', 'images/screenshots/studyhall/2.jpg'],
   },
   {
     title: '온라인 노래맞추기 게임 부덕사운드 개발',
     date: '2021.09 ~ 2021.12, 4인 팀 프로젝트',
-    stacks: [
-      'Typescript',
-      'Socket.io',
-      'Next.js',
-      'Redux',
-      'Redux-thunk',
-      'emotion',
-      'Express',
-      'MongoDB',
-      'Nginx',
-      'PM2',
-      'NCP',
-      'Github Actions',
-    ],
+    stacks: ['Typescript', 'Socket.io', 'Next.js', 'Redux', 'Redux-thunk', 'emotion', 'Express', 'MongoDB', 'Nginx', 'PM2', 'NCP', 'Github Actions'],
     roles: [
       '1.   화면 설계 및 UI/UX 디자인',
       '2.   로그인 및 회원가입 구현',
-      '- JWT 토큰 인증 방식의 로그인 구현',
       '3.   SEO 최적화를 위한 메타태그 추가 및 네이버, 구글 검색엔진 최적화 등록',
       '4.   마이페이지, 정답 및 힌트 처리 등 게임 관련 필수 기능 구현',
     ],
@@ -331,8 +312,9 @@ export default [
     type: 'web',
     content: [
       '4인 팀 프로젝트로, UI/UX 디자인과 풀스택 개발을 담당했습니다.',
-      '검색 엔진 최적화를 위해 Next.js를 사용하여 SSR 방식으로 개발을 진행했습니다. 이에 추가적으로 메타태그 추가와 네이버 및 구글 검색엔진 등록을 진행했습니다.',
+      'SEO를 위해 Next.js를 사용했고, 이에 추가적으로 메타태그 추가와 네이버 및 구글 검색엔진 등록을 진행하여 Lighthouse의 SEO 점수를 100점으로 향상시켰습니다.',
       'Atomic 디자인 패턴을 적용하여 컴포넌트 재사용성을 향상시켰습니다.',
+      'Github Actions를 이용하여 배포 자동화를 적용하여 개발 생산성을 높였습니다.',
     ],
     screenshots: [
       'images/screenshots/booduck/1.png',
